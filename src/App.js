@@ -7,13 +7,8 @@ import UserBlogs from "./pages/UserBlogs";
 import CreateBlog from "./pages/CreateBlog";
 import BlogDetails from "./pages/BlogDetails";
 import { Toaster } from "react-hot-toast";
-import { useEffect } from "react";
-import axios from "axios";
-function App() {
 
-  useEffect(()=>{
-    axios.defaults.baseURL="https://internship-43hq.onrender.com"
-  })
+function App() {
 
   return (
     <>

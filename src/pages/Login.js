@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authActions } from "../redux/store";
 import toast from "react-hot-toast";
+import AxiosClient from "../services/AxiosClient";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/user/login", {
+      const { data } = await AxiosClient.post("/api/v1/user/login", {
         email: inputs.email,
         password: inputs.password,
       });
