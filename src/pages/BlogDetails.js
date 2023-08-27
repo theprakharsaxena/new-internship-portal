@@ -9,9 +9,9 @@ const BlogDetails = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
   // get blog details
-  const getBlogDetail = async () => {
+  const getBlogDetail = async (newId) => {
     try {
-      const { data } = await axios.get(`/api/v1/blog/get-blog/${id}`);
+      const { data } = await axios.get(`/api/v1/blog/get-blog/${newId}`);
       if (data?.success) {
         setBlog(data?.blog);
         setInputs({
@@ -26,7 +26,9 @@ const BlogDetails = () => {
   };
 
   useEffect(() => {
-    getBlogDetail();
+    if (id) {
+      getBlogDetail(id);
+    }
   }, [id]);
 
   // input change
